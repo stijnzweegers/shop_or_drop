@@ -13,10 +13,10 @@ Using transaction data is unconventional in the modern machine learning society,
 My project replicates the study from P. Fader et al., "Counting Your Customers" (2003) and future customer life-time valuation work. Peter Fader describes the beta-geometric negative binomial distribution model (BG/ NBD), which is based on the Pareto/ NBD model but claimed to be computationally less expensive.
 
 From the transaction data we can generate the following features, summarized by customer:
-1. Frequency of repeated transactions
-2. Recency (when the last transaction occurred)
-3. Time a customer had the opportunity to make a repeated transaction
-4. Mean value of transaction
+  1. Frequency of repeated transactions
+  2. Recency (when the last transaction occurred)
+  3. Time a customer had the opportunity to make a repeated transaction
+  4. Mean value of transaction
 
 The BG/ NBD model works in a two-step approach. First it calculates the probability the customer is alive with a beta geometric distribution. Every customer is assumed to become inactive at one point in their live, which is referred to as the dropout-rate. Secondly, the negative binomial distribution calculates the purchasing rate for all the customers that are expected to be alive. The purchasing rate is calculated at an individual level with a Poisson distribution and on a population level with a gamma distribution.  
 
@@ -29,7 +29,7 @@ Below we can see the the distribution for a single customer over time as an exam
 
 ***INCLUDE the single distributuion picture***
 
-Looking at the total population, we can see 
+Looking at the total population, we can see
 
 
 
