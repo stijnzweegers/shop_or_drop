@@ -2,11 +2,12 @@
 ## *Future Buying Behavior and Customer Life-Time Value*
 
 ###Table of Contents
-* Motivation
-* Approach
-* Results
-*
-*
+* [Motivation](#Motivation)
+* [Approach](#Approach)
+* [Frequency & Recency](#Frequency & Recency)
+* [Number of Transactions](#Number of Transactions)
+* [Customer Life-Time Value](#Customer Life-Time Value)
+* [Conclusion](#Conclusion)
 <br>
 
 ##Motivation
