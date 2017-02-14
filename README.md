@@ -42,14 +42,29 @@ For the total population, the relationship between recency and frequency looks a
 <br>
 
 
-###Number of Transactions
-Below we can see how well the BG/ NBD model predicts the total cumulative number of transactions over time. We are training on 39 weeks and predicting on the following 39 weeks, similar to the study from P. Fader. As a comparison I used the average retention rate times the historical number of transactions, which is the grey line. The green line is the BG/ NBD base line, which does a better job predicting but is still not great.
-Looking into the data it becomes clear that more than 90% of the customers only made one transaction in the training data. These customers have a different behavior than the high-frequency buying customers. Since the BG/ NBD model predicts a population wide purchasing rate, it has a hard time both predicting the low-frequency buying customers and high-frequency buying customers. Because of this reason undersampling and oversampling did not improve the model. However, splitting the training data into high-frequency and low-frequency customers and training on both groups individually did improve the model. The red line shows the result.
+##Number of Transactions
+Below we can see how well the BG/ NBD model predicts the total cumulative number of transactions over time. The BG/ NBD model includes the probability of a customer being alive as a condition, and given this probability making a prediction on the future number of transactions.
+
+We are training on 39 weeks and predicting on the following 39 weeks, similar to the study from P. Fader. As a comparison I used the average retention rate times the historical number of transactions, which is the grey line. The green line shows the BG/ NBD base line, which does a better job predicting the total number of transactions but is still not great.
+
+Looking into the data it becomes clear that more than 90% of the customers only made one transaction in the training data. These customers have a different behavior than the high-frequency buying customers. Since the BG/ NBD model predicts a population wide purchasing rate, it has a hard time both predicting the low-frequency buying customers and high-frequency buying customers. Because of this reason undersampling and oversampling did not improve the model. However, splitting the training data into high-frequency and low-frequency customers and training on both groups individually did improve the model, showing by the red line in the plot.
+
+![Cumulative number of transactions over time](/img/cum_num_trans.png)
+
+The mean absolute error (MAE) is easy interpretable how far we are off per customer. The MAE is 0.366 for the high/ low frequency customer's BG/ NBD model at 39 weeks, where the BG/ NBD model MAE is 0.402 or an improvement of 8.5%.
+
+Alternatively, I've tested the PARETO/ NBD model where the BG/ NBD model is a derivative from and the Modified BG/ NBD model, which does not assume a customer's probability of being alive is 100% after one transaction, but both did not improve the BG/ NBD model.
+<br>
+
+##Customer Life-Time Value
+Now that we know that we can predict the number of transactions over time pretty accurately, we can add the value of the transactions into the equation, to get one valuation by customer. We can do this with the Gamma-Gamma model. The Gamma-Gamma model includes both the customer's individual historical average value of transactions as well as the population's average number of transactions. Below we can see the results plotted.  
+
+![CLV](/img/CLV.png)
 
 
-As a base-case I've used the average retention rate for my dataset.
-
-
+<br>
+<br>
+<br>
 
 The goal is to use several models on my data and see which model performs best, where the main goal is to predict churn. And predict the future transactions.
 After that, I would like to look into the customer value, i.e. the amount of revenue a customer is generating. I could for example split the customers into high-value customers and into low-value customers. This would imply that high-value customers that are churning should be on the radar for the companies.
