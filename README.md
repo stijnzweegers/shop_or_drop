@@ -57,15 +57,14 @@ Alternatively, I've tested the PARETO/ NBD model where the BG/ NBD model is a de
 <br>
 
 ##Customer Life-Time Value
-Now that we know that we can predict the number of transactions over time pretty accurately, we can add the value of the transactions into the equation, to get one valuation by customer. We can do this with the Gamma-Gamma model. The Gamma-Gamma model includes both the customer's individual historical average value of transactions as well as the population's average number of transactions. Below we can see the results plotted.  
+Now that we know that we can predict the number of transactions over time pretty accurately, we can add the value of the transactions into the equation, to get a single valuation for each customer. We can do this with the Gamma-Gamma model. The Gamma-Gamma model includes both the customer's individual historical average value of transactions as well as the population's average number of transactions. Below we can see the results plotted for 39 weeks.  
 
 ![CLV](/img/CLV.png)
 
-
-<br>
-<br>
 <br>
 
-The goal is to use several models on my data and see which model performs best, where the main goal is to predict churn. And predict the future transactions.
-After that, I would like to look into the customer value, i.e. the amount of revenue a customer is generating. I could for example split the customers into high-value customers and into low-value customers. This would imply that high-value customers that are churning should be on the radar for the companies.
-Finally, I could make some kind of an interface that gives a weekly report on customer’s probability to churn etc. This would make it easy for a company to review on the weekly basis what customers are most likely to churn and companies could then decide if they’d like to take action (by giving discounts etc.) to these specific customers.
+
+This overview helps us to segment our customers by customer value based on how many transactions we can expect them to make and the value of those transactions. I've selected a threshold of frequency 2 and value of transaction of 100, however these thresholds are company specific and may vary depending on the nature of the business. The important take away is that we have a clear overview on who our most valuable customers are and how much they are worth to us, that is we know how much we can spend on them individually.
+<br>
+
+##Conclusion
