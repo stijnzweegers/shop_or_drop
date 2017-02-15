@@ -8,6 +8,7 @@
 * [Number of Transactions](#number-of-transactions)
 * [Customer Life-Time Value](#customer-life-time-value)
 * [Conclusion](#conclusion)
+* [Libraries Used](#libraries-used)
 <br>
 
 ###Motivation
@@ -69,3 +70,6 @@ This overview helps us to segment our customers by customer value based on how m
 <br>
 
 ###Conclusion
+
+
+###Libraries Used
