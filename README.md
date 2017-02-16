@@ -84,12 +84,10 @@ The BG/ NBD model that was described by P. Fader also worked well on my e-commer
 The model is widely applicable due to the fact that you only need transactional data to implement, which most companies have available.
 <br>
 
+* *average retention rate times the average value of historical transactions by customer*
+
 ##Future Work
 * Include seasonality; <br>
 The BG/ NBD model does currently not include seasonality - therefore adding seasonality would improve the model for companies that have high seasonality.
 * Include new customers; <br>
 The BG/ NBD model does currently only make predictions for the existing customers. Adding new customers to the prediction would complete the picture, especially for companies that have a high portion of their revenue coming from new customers.
-
-<br>
-<br>
-* *average retention rate times the average value of historical transactions by customer*
