@@ -10,7 +10,7 @@
 * [Number of Transactions](#number-of-transactions)
 * [Customer Life-Time Value](#customer-life-time-value)
 * [Conclusion](#conclusion)
-* [Libraries Used](#libraries-used)
+* [Future Work](#future-work)
 <br>
 
 ###Motivation
@@ -55,23 +55,41 @@ Looking into the data it becomes clear that more than 90% of the customers only 
 
 ![Cumulative number of transactions over time](/img/cum_num_trans.png)
 
-The mean absolute error (MAE) is easy interpretable to tell us how far we are off for each customer. **The MAE is 0.366** for the high/ low frequency customer's BG/ NBD model at 39 weeks, where the BG/ NBD model MAE is 0.402 or an improvement of 8.5%.
+The mean absolute error (MAE) is easy interpretable to tell us how far we are off for each customer. **The MAE is 0.366** for the high/ low frequency customer's BG/ NBD model at 39 weeks, where the BG/ NBD model MAE is 0.402 or an improvement of 8.5%. To confirm, I also tested the model on a different company's dataset, which showed similar results (MAE of 0.521).
 
 Alternatively, I've tested the PARETO/ NBD model where the BG/ NBD model is a derivative from and the Modified BG/ NBD model, which does not assume a customer's probability of being alive is 100% after one transaction, but both did not improve the BG/ NBD model.
 <br>
 
 ###Customer Life-Time Value
-Now that we know that we can predict the number of transactions over time pretty accurately, we can add the value of the transactions into the equation, to get a single valuation for each customer. We can do this with **the Gamma-Gamma model**. The Gamma-Gamma model is an extension for the BG/ NBD model and includes both the customer's individual historical average value of transactions as well as the population's average number of transactions. Below we can see the results plotted for 39 weeks.  
+Now that we know that we can predict the number of transactions over time pretty accurately, we can add the value of the transactions into the equation, to get a single valuation for each customer. We can do this with **the Gamma-Gamma model**. The Gamma-Gamma model is an extension for the BG/ NBD model and includes both the customer's individual historical average value of transactions as well as the population's average number of transactions. we can only apply the Gamma-Gamma model whenever there is **no significant correlation between the monetary value and the frequency of the transactions**. The table below confirms that there is no apparent correlation.
+
+![CLV](/img/correlation_mon_val.png)
+<br>
+
+Given that there is no significant correlation between monetary value and frequency we can use the Gamma-Gamma model. Below we can see **the expected number of transactions and the conditional expected average value by customer plotted at 39 weeks**.
 
 ![CLV](/img/CLV.png)
 
 <br>
 
 
-This overview helps us to segment our customers by customer value based on how many transactions we can expect them to make and the value of those transactions. I've selected a threshold of frequency 2 and value of transaction of 100, however these thresholds are company specific and may vary depending on the nature of the business. The important take away is that we have a clear overview on who our most valuable customers are and how much they are worth to us, that is we know how much we can spend on them individually.
+This overview **helps us to segment our customers** by customer value based on how many transactions we can expect them to make and the value of those transactions. I've selected a threshold of frequency 2 and value of transaction of 100, however these thresholds are company specific and may vary depending on the nature of the business. The important take away is that we have a clear overview on who our most valuable customers are and how much they are worth to us, that is we know how much we can spend on them individually.
+
+To express the performance in dollars we can look at the MAE. The MAE for future customer value is $12, where the MAE for the average* is $22.
 <br>
 
 ###Conclusion
+The BG/ NBD model that was described by P. Fader also worked well on my e-commerce dataset. It's an improvement to the traditional customer life-time valuation, since it provides us a single valuation by customer.
 
+The model is widely applicable due to the fact that you only need transactional data to implement, which most companies have available.
+<br>
 
-###Libraries Used
+##Future Work
+* Include seasonality; <br>
+The BG/ NBD model does currently not include seasonality - therefore adding seasonality would improve the model for companies that have high seasonality.
+* Include new customers; <br>
+The BG/ NBD model does currently only make predictions for the existing customers. Adding new customers to the prediction would complete the picture, especially for companies that have a high portion of their revenue coming from new customers.
+
+<br>
+<br>
+* *average retention rate times the average value of historical transactions by customer*
