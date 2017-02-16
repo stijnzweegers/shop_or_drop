@@ -83,8 +83,10 @@ The BG/ NBD model that was described by P. Fader also worked well on my e-commer
 
 The model is widely applicable due to the fact that you only need transactional data to implement, which most companies have available.
 <br>
+<br>
 
-* *average retention rate times the average value of historical transactions by customer*
+*average retention rate times the average value of historical transactions by customer*
+
 
 ##Future Work
 * Include seasonality; <br>
